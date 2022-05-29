@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)http://fpcloud.ricorean.net/plugin/tus-js-client-master/demo/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>tus-js-client demo</title>
+    <link href="./js/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="./js/demo.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <h1>tus-js-client demo</h1>
+
+      <div class="alert alert-warining hidden" id="support-alert">
+        <b>Warning!</b> Your browser does not seem to support the features necessary to run tus-js-client. The buttons below may work but probably will fail silently.
+      </div>
+
+      <br>
+
+      <table>
+        <tbody><tr>
+          <td>
+            <label for="endpoint">
+              Upload endpoint:
+            </label>
+          </td>
+          <td>
+            <input type="text" id="endpoint" name="endpoint" value="http://localhost:8080/test/api/upload">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="chunksize">
+              Chunk size (bytes):
+            </label>
+          </td>
+          <td>
+            <input type="number" id="chunksize" name="chunksize" value="1000000">
+          </td>
+        </tr>
+        <tr style="display:none;">
+          <td>
+            <label for="resume">
+              Perform full upload:
+              <br>
+              <small>(even if we could resume)</small>
+            </label>
+          </td>
+          <td>
+            <input type="checkbox" id="resume">
+          </td>
+        </tr>
+      </tbody></table>
+
+      <br>
+
+      <input type="file">
+
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="span8">
+          <div class="progress progress-striped progress-success">
+            <div class="bar" style="width: 0%;"></div>
+          </div>
+        </div>
+        <div class="span4">
+          <button class="btn stop" id="toggle-btn">start upload</button>
+        </div>
+      </div>
+
+      <hr>
+      <h3>Uploads</h3>
+      <p id="upload-list">
+        Succesful uploads will be listed here. Try one!
+      </p>
+
+    </div>
+  
+
+  <script src="./js/tus.js"></script>
+  <script src="./js/demo.js"></script>
+
+</body></html>
