@@ -56,6 +56,7 @@ public class FileUploadController {
 		if (uploadInfo != null && !uploadInfo.isUploadInProgress()) {
 
 			// 將檔案從暫存資料夾複製到指定路徑
+			System.out.println("將檔案從暫存資料夾複製到指定路徑--Start");
 			File aDirectory = new File(directory);
 			String filenameString = uploadInfo.getFileName();
 			String serFilePath = aDirectory.getAbsolutePath() + File.separator + "uploads" + File.separator
@@ -85,7 +86,7 @@ public class FileUploadController {
 			}
 
 			System.out.println("copy end time:" + new Date());
-			System.out.println("將檔案從暫存資料夾複製到指定路徑");
+			System.out.println("將檔案從暫存資料夾複製到指定路徑--End");
 		}
 
 //        try {
