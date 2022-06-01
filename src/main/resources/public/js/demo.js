@@ -66,6 +66,7 @@ var upload          = null;
     resume  : !resumeCheckbox.checked,
     chunkSize: chunkSize,
     retryDelays: [0, 1000, 3000, 5000],
+    withCredentials: true,
     onError : function (error) {
       if (error.originalRequest) {
         if (window.confirm("Failed because: " + error + "\nDo you want to retry?")) {
@@ -92,6 +93,20 @@ var upload          = null;
      },
     onSuccess: function () {
 	console.log("onSuccess:"+new Date() );
+	
+	try {
+		console.log("發送檢查檔案是否存在的請求--1: "+new Date() );
+		var fileName = (upload.url).split("/").pop();
+		var dataUrl= endpoint.replace("/api/upload", "/base/chkFile") + "?idx=1&fileName=" + fileName;
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET',dataUrl, true);
+		xhr.send();
+		xhr.onload = function(){
+			console.log("fileName=[" + fileName + "], isExisted=[" + this.responseText + "]");
+		}
+	} catch(err) {
+		
+	}
 	
       var anchor = document.createElement("a");
       anchor.textContent = "Download " + upload.file.name + " (" + upload.file.size + " bytes)";
@@ -145,6 +160,7 @@ function startUpload2() {
     resume  : !resumeCheckbox.checked,
     chunkSize: chunkSize,
     retryDelays: [0, 1000, 3000, 5000],
+    withCredentials: true,
     onError : function (error) {
       if (error.originalRequest) {
         if (window.confirm("Failed because: " + error + "\nDo you want to retry?")) {
@@ -171,6 +187,21 @@ function startUpload2() {
      },
     onSuccess: function () {
 	console.log("onSuccess:"+new Date() );
+	
+	try {
+		console.log("發送檢查檔案是否存在的請求--2: "+new Date() );
+		var fileName = (upload.url).split("/").pop();
+		var dataUrl= endpoint.replace("/api/upload", "/base/chkFile") + "?idx=2&fileName=" + fileName;
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET',dataUrl, true);
+		xhr.send();
+		xhr.onload = function(){
+			console.log("fileName=[" + fileName + "], isExisted=[" + this.responseText + "]");
+		}
+	} catch(err) {
+		
+	}
+	
       var anchor = document.createElement("a");
       anchor.textContent = "Download " + upload.file.name + " (" + upload.file.size + " bytes)";
       anchor.href = upload.url;
@@ -213,6 +244,7 @@ function startUpload3() {
     resume  : !resumeCheckbox.checked,
     chunkSize: chunkSize,
     retryDelays: [0, 1000, 3000, 5000],
+    withCredentials: true,
     onError : function (error) {
       if (error.originalRequest) {
         if (window.confirm("Failed because: " + error + "\nDo you want to retry?")) {
@@ -239,6 +271,21 @@ function startUpload3() {
      },
     onSuccess: function () {
 	console.log("onSuccess:"+new Date() );
+	
+	try {
+		console.log("發送檢查檔案是否存在的請求--3: "+new Date() );
+		var fileName = (upload.url).split("/").pop();
+		var dataUrl= endpoint.replace("/api/upload", "/base/chkFile") + "?idx=3&fileName=" + fileName;
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET',dataUrl, true);
+		xhr.send();
+		xhr.onload = function(){
+			console.log("fileName=[" + fileName + "], isExisted=[" + this.responseText + "]");
+		}
+	} catch(err) {
+		
+	}
+	
       var anchor = document.createElement("a");
       anchor.textContent = "Download " + upload.file.name + " (" + upload.file.size + " bytes)";
       anchor.href = upload.url;
